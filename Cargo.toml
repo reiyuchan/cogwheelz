@@ -1,0 +1,22 @@
+[package]
+name = "cogwheelz"
+version = "0.5.0"
+authors = ["reiyuchan"]
+edition = "2021"
+license = "MIT"
+description = "A multi purpose CLI tool for experimenting with rust"
+build = "build.rs"
+
+[package.metadata.winresource]
+OriginalFileName = "cogwheelz.exe"
+LegalCopyright = "© reiyuchan. All rights reserved."
+CompanyName = "reiyuchan"
+
+[dependencies]
+anyhow = "1.0.86"
+clap = { version = "4.5.4", features = ["derive"] }
+reqwest = "0.12.4"
+tokio = { version = "1.37.0", features = ["fs", "rt-multi-thread", "macros"] }
+
+[build-dependencies]
+winresource = "0.1"
