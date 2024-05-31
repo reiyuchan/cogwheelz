@@ -21,10 +21,6 @@ pub async fn write_files(response: reqwest::Response, path: path::PathBuf) -> Re
     Ok(())
 }
 
-// pub fn move_files() {
-//      //TODO move files to certain destination by arg -m
-// }
-
 pub async fn remove_files() {
     let dir = path::Path::new("data");
     if !dir.is_dir() {
