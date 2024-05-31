@@ -33,8 +33,12 @@ pub async fn remove_files() {
 }
 
 pub async fn list_files() {
-    let mut entries = tokio::fs::read_dir("data").await.unwrap();
-    while let Some(entry) = entries.next_entry().await.unwrap() {
-        println!("{:?}", entry.file_name())
+    match tokio::fs::read_dir("data").await {
+        Ok(mut entries) => {
+            while let Some(entry) = entries.next_entry().await.unwrap() {
+                println!("{:?}", entry.file_name());
+            }
+        }
+        Err(_) => eprintln!("No files found... start downloading files first..."),
     }
 }
